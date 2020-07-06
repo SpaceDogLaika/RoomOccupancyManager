@@ -1,1 +1,22 @@
-<p>menu works!</p>
+<div class="menu-container">
+    <div class="form-container">
+        <div class="form-title">
+            <h2>Input your available rooms:</h2>
+        </div>
+        <form class="room-form" [formGroup]="roomForm">
+            <div class="business-input">
+                <mat-form-field appearance="fill">
+                    <mat-label>Business</mat-label>
+                    <input matInput type="number" formControlName="businessRooms">
+                </mat-form-field>
+            </div>
+            <br>
+            <div class="economy-input">
+                <mat-form-field appearance="fill">
+                    <mat-label>Economy</mat-label>
+                    <input matInput type="number" formControlName="economyRooms">
+                </mat-form-field>
+            </div>
+        </form>
+    </div>
+</div>

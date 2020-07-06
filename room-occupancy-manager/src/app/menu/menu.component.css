@@ -1,0 +1,6 @@
+.menu-container{
+    background-color: lightgrey;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+}
