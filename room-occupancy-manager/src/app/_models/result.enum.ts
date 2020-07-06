@@ -1,8 +1,12 @@
 export class Result {
     businessRoomsAvailable: number;
-    businessRoomsUsage: number;
+    businessRoomsUsage: number[];
     businessRoomsValue: number;
     economyRoomsAvailable: number;
-    economyRoomsUsage: number;
+    economyRoomsUsage: number[];
     economyRoomsValue: number;
+
+    constructor(){
+        
+    }
 }
