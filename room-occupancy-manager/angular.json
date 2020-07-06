@@ -5,7 +5,11 @@
   "projects": {
     "room-occupancy-manager": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -123,5 +127,10 @@
       }
     }
   },
-  "defaultProject": "room-occupancy-manager"
+  "defaultProject": "room-occupancy-manager",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

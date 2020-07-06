@@ -7,22 +7,26 @@
             <div class="business-input">
                 <mat-form-field appearance="fill">
                     <mat-label>Business</mat-label>
-                    <input matInput type="number" formControlName="businessRooms">
+                    <input matInput type="number" formControlName="businessRooms" autocomplete="off">
                 </mat-form-field>
                 <div class="input-error">
                     <mat-error *ngIf="businessRooms.touched && businessRooms.hasError('required')">Number required</mat-error>
                   </div>
             </div>
-            <br>
             <div class="economy-input">
                 <mat-form-field appearance="fill">
                     <mat-label>Economy</mat-label>
-                    <input matInput type="number" formControlName="economyRooms">
+                    <input matInput type="number" formControlName="economyRooms" autocomplete="off">
                 </mat-form-field>
                 <div class="input-error">
                     <mat-error *ngIf="economyRooms.touched && economyRooms.hasError('required')">Number required</mat-error>
                   </div>
             </div>
         </form>
+        <div class="submit-form">
+            <button class="submit-form-button" mat-stroked-button (click)="submit()">
+              Calculate
+            </button>
+          </div>
     </div>
 </div>
