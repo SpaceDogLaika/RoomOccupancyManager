@@ -9,6 +9,9 @@
                     <mat-label>Business</mat-label>
                     <input matInput type="number" formControlName="businessRooms">
                 </mat-form-field>
+                <div class="input-error">
+                    <mat-error *ngIf="businessRooms.touched && businessRooms.hasError('required')">Number required</mat-error>
+                  </div>
             </div>
             <br>
             <div class="economy-input">
@@ -16,6 +19,9 @@
                     <mat-label>Economy</mat-label>
                     <input matInput type="number" formControlName="economyRooms">
                 </mat-form-field>
+                <div class="input-error">
+                    <mat-error *ngIf="economyRooms.touched && economyRooms.hasError('required')">Number required</mat-error>
+                  </div>
             </div>
         </form>
     </div>

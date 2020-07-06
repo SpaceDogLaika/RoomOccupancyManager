@@ -10,6 +10,14 @@ export class MenuComponent implements OnInit {
 
   formGroup: FormGroup;
 
+  get businessRooms() {
+		return this.roomForm.get('businessRooms') as FormControl;
+  }
+
+  get economyRooms() {
+		return this.roomForm.get('economyRooms') as FormControl;
+  }
+
   roomForm = new FormGroup({
     businessRooms: new FormControl('', [Validators.required]),
     economyRooms: new FormControl('', [Validators.required]),
