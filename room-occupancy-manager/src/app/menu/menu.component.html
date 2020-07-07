@@ -1,32 +1,56 @@
-<div class="menu-container">
-    <div class="form-container">
-        <div class="form-title">
-            <h2>Input your available rooms:</h2>
+<div class="menu-app">
+    <div class="menu-container">
+        <div class="form-container">
+            <div class="form-title">
+                <h2>Input your available rooms:</h2>
+            </div>
+            <form class="room-form" [formGroup]="roomForm">
+                <div class="business-input">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Business</mat-label>
+                        <input matInput type="number" formControlName="businessRooms" autocomplete="off">
+                    </mat-form-field>
+                    <div class="input-error">
+                        <mat-error *ngIf="businessRooms.touched && businessRooms.hasError('required')">Number required</mat-error>
+                      </div>
+                </div>
+                <div class="economy-input">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Economy</mat-label>
+                        <input matInput type="number" formControlName="economyRooms" autocomplete="off">
+                    </mat-form-field>
+                    <div class="input-error">
+                        <mat-error *ngIf="economyRooms.touched && economyRooms.hasError('required')">Number required</mat-error>
+                      </div>
+                </div>
+            </form>
+            <div class="submit-form">
+                <button class="submit-form-button" mat-stroked-button (click)="submit()">
+                  Calculate
+                </button>
+              </div>
         </div>
-        <form class="room-form" [formGroup]="roomForm">
-            <div class="business-input">
-                <mat-form-field appearance="fill">
-                    <mat-label>Business</mat-label>
-                    <input matInput type="number" formControlName="businessRooms" autocomplete="off">
-                </mat-form-field>
-                <div class="input-error">
-                    <mat-error *ngIf="businessRooms.touched && businessRooms.hasError('required')">Number required</mat-error>
-                  </div>
-            </div>
-            <div class="economy-input">
-                <mat-form-field appearance="fill">
-                    <mat-label>Economy</mat-label>
-                    <input matInput type="number" formControlName="economyRooms" autocomplete="off">
-                </mat-form-field>
-                <div class="input-error">
-                    <mat-error *ngIf="economyRooms.touched && economyRooms.hasError('required')">Number required</mat-error>
-                  </div>
-            </div>
-        </form>
-        <div class="submit-form">
-            <button class="submit-form-button" mat-stroked-button (click)="submit()">
-              Calculate
-            </button>
-          </div>
+    </div>
+    <div class="result-container" *ngIf="result">
+        <mat-grid-list cols="2" rowHeight="50px">
+            <mat-grid-tile class="business">Business rooms available:</mat-grid-tile>
+            <mat-grid-tile>{{result.businessRoomsAvailable}}</mat-grid-tile>
+    
+            <mat-grid-tile class="business">Business rooms usage:</mat-grid-tile>
+            <mat-grid-tile>{{result.businessRoomsUsage.length}}</mat-grid-tile>
+    
+            <mat-grid-tile class="business">Business rooms value:</mat-grid-tile>
+            <mat-grid-tile>{{result.businessRoomsValue}}</mat-grid-tile>
+    
+            <mat-grid-tile class="economy">Economy rooms available:</mat-grid-tile>
+            <mat-grid-tile>{{result.economyRoomsAvailable}}</mat-grid-tile>
+    
+            <mat-grid-tile class="economy">Economy rooms usage:</mat-grid-tile>
+            <mat-grid-tile>{{result.economyRoomsUsage.length}}</mat-grid-tile>
+    
+            <mat-grid-tile class="economy">Economy rooms value:</mat-grid-tile>
+            <mat-grid-tile>{{result.economyRoomsValue}}</mat-grid-tile>
+    
+          </mat-grid-list>
     </div>
 </div>

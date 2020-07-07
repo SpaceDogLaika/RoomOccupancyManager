@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HotelRooms } from '../_models/hotel-rooms';
-import { Result } from '../_models/result.enum';
+import { Result } from '../_models/result.model';
 
 @Injectable({
   providedIn: 'root'

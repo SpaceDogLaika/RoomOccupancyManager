@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { LogicCalculatorService } from '../_services/logic-calculator.service';
 import { HotelRooms } from '../_models/hotel-rooms';
+import { Result } from '../_models/result.model';
 
 @Component({
   selector: 'app-menu',
@@ -12,6 +13,7 @@ export class MenuComponent implements OnInit {
 
   formGroup: FormGroup;
   failed: boolean = false;
+  result: Result;
 
   get businessRooms() {
 		return this.roomForm.get('businessRooms') as FormControl;
@@ -34,7 +36,7 @@ export class MenuComponent implements OnInit {
   submit(){
       if(!this.businessRooms.hasError('required') && !this.economyRooms.hasError('required')){
         this.failed = false;
-        this.logicCalculator.calculateRoomDelegation(this.roomForm.value as HotelRooms);
+        this.result = this.logicCalculator.calculateRoomDelegation(this.roomForm.value as HotelRooms);
       } else {
         this.failed = true;
       }
