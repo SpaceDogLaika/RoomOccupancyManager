@@ -47,20 +47,24 @@ export class LogicCalculatorService {
       }
     }
 
-    // add customers to economy rooms
-    for (let index = 0; index < hotelRooms.economyRooms; index++) {
+    // upgrade customers to business rooms
+    for (let index = 0; index <= customersToUpgrade; index++) {
       // check if any customers require an upgrade
       if (customersToUpgrade > 0 
         && this.economyRange[index]
         && result.businessRoomsAvailable > result.businessRoomsUsage.length){
           result.businessRoomsUsage.push(this.economyRange[index]);
           this.economyRange.shift();
-          customersToUpgrade--;
-        }
-        if (this.economyRange[index]){
-          result.economyRoomsUsage.push(this.economyRange[index]);
+          index--;
         }
     }
+
+        // add customers to economy rooms
+        for (let index = 0; index < hotelRooms.economyRooms; index++) {
+            if (this.economyRange[index]){
+              result.economyRoomsUsage.push(this.economyRange[index]);
+            }
+        }
 
     result = this.calculateResultValue(result);
 
