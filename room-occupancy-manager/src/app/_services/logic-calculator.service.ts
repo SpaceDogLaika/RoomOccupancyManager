@@ -40,13 +40,16 @@ export class LogicCalculatorService {
         customersToUpgrade = result.businessRoomsAvailable - this.businessRange.length;
       }
 
+    // add customers to business rooms
     for (let index = 0; index < hotelRooms.businessRooms; index++) {
       if (this.businessRange[index]){
         result.businessRoomsUsage.push(this.businessRange[index]);
       }
     }
 
+    // add customers to economy rooms
     for (let index = 0; index < hotelRooms.economyRooms; index++) {
+      // check if any customers require an upgrade
       if (customersToUpgrade > 0 
         && this.economyRange[index]
         && result.businessRoomsAvailable > result.businessRoomsUsage.length){
